@@ -4,5 +4,24 @@
 {% block title %}Minu kodukas{% endblock %}
 
 {% block content %}
-	add.html
+<center>
+<br/><br/><br/>
+<div class="container">
+	<h1>Liitmine</h1>
+	<br/>
+	{{ num_1 }} + {{ num_2 }}
+	<br/>
+	<h1>{{ minuvastus }}</h1>
+	<br/>
+<form action="{% url 'add' %}" method="POST">
+	{% csrf_token %}
+  <div class="mb-3">
+    <input type="text" class="form-control" placeholder="Sisesta siia oma vastus" name="vastus">
+    <input type="hidden" name="vana_num1" value="{{ num_1 }}">
+    <input type="hidden" name="vana_num2" value="{{ num_2 }}">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+</center>
 {% endblock %}
