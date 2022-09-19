@@ -1,6 +1,30 @@
-{% extends base %}
-{% load statics %}
-{% title %}Lahutamine{% endtitle %}
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Lahutamine{% endblock %}
 {% block content %}
-Lahutamine
+<center>
+	<br/>
+<div class="container">
+<h1>Lahutamine</h1>
+<br/><br/>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>{{ minu_vastus }}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<h1>{{ minu_vastus }}</h1>
+<br/><br/><br/>
+<h1>{{ arv1 }} - {{ arv2 }}</h1>
+<br/><br/><br/>
+<form action="{% url 'subst' %}" method="POST">
+	{% csrf_token %}
+  <div class="mb-3">
+    <input type="text" class="form-control" placeholder="Sisesta oma vastus" name="vastus">
+    <input type="hidden" value="{{ arv1 }}" name="esimene_arv">
+    <input type="hidden" value="{{ arv2 }}" name="teine_arv">
+  </div>
+  <br/><br/>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+</center>
 {% endblock %}
