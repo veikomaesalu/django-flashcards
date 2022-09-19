@@ -20,13 +20,16 @@ def add(request):
 
 		correct_answer = int(vana_num_1) + int(vana_num_2)
 		if correct_answer == int(answer):
-			minu_vastus = "ÕIGE!"
+			minu_vastus = "ÕIGE!  " + vana_num_1 + " + " + vana_num_2 + " on tõesti " + answer
+			varv = "success"
 		else:
-			minu_vastus = "VALE!"
+			minu_vastus = "VALE!  " + vana_num_1 + " + " + vana_num_2 + " ei ole " + answer
+			varv = "danger"
 		return render(request, "add.html", 
 		{'minuvastus':minu_vastus,
 		'num_1':num1,
-		'num_2':num2 })
+		'num_2':num2,
+		'varv': varv})
 
 
 	return render(request, "add.html",

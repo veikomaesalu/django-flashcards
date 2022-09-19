@@ -3,17 +3,13 @@
 {% block title %}Lahutamine{% endblock %}
 {% block content %}
 <center>
-	<br/>
 <div class="container">
-<h1>Lahutamine</h1>
-<br/><br/>
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
       <strong>{{ minu_vastus }}</strong>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-<h1>{{ minu_vastus }}</h1>
+  </div>
 <br/><br/><br/>
-<h1>{{ arv1 }} - {{ arv2 }}</h1>
+  <h1>{{ arv1 }} - {{ arv2 }}</h1>
 <br/><br/><br/>
 <form action="{% url 'subst' %}" method="POST">
 	{% csrf_token %}
