@@ -3,11 +3,14 @@
 {% block title %}Lahutamine{% endblock %}
 {% block content %}
 <center>
+
 <div class="container">
-  <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      <strong>{{ minu_vastus }}</strong>
+  {% if minu_vastus %}
+  <div class="alert alert-{{ varv }} alert-dismissible fade show" role="alert">
+      {{ minu_vastus }}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
+  {% endif %}
 <br/><br/><br/>
   <h1>{{ arv1 }} - {{ arv2 }}</h1>
 <br/><br/><br/>

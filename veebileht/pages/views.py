@@ -26,7 +26,7 @@ def add(request):
 			minu_vastus = "VALE!  " + vana_num_1 + " + " + vana_num_2 + " ei ole " + answer
 			varv = "danger"
 		return render(request, "add.html", 
-		{'minuvastus':minu_vastus,
+		{'minu_vastus':minu_vastus,
 		'num_1':num1,
 		'num_2':num2,
 		'varv': varv})
@@ -48,13 +48,16 @@ def subst(request):
 		oige_vastus = int(esimene_nr_tagasi) - int(teine_nr_tagasi)
 		if oige_vastus == int(vastus_tagasi):
 			minu_vastus = "Õigus!!! " + esimene_nr_tagasi + ' - ' + teine_nr_tagasi + ' on ' + str(vastus_tagasi)
+			varv = "success"
 		else:
 			minu_vastus = "Vale!!!  " + esimene_nr_tagasi + ' - ' + teine_nr_tagasi + ' ei ole ' + str(vastus_tagasi)
+			varv = "danger"
 		return render(request, "subst.html", 
 			{'vastus_tagasi':vastus_tagasi,
 			 'minu_vastus':minu_vastus,
 			 'arv1':arv1,
-		 	 'arv2':arv2})
+		 	 'arv2':arv2, 
+		 	 "varv":varv})
 
 	return render(request, "subst.html", 
 		{'arv1':arv1,
